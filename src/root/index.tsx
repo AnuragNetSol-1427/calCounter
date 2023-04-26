@@ -5,8 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
 
 // Screens
-import SplashScreen from '../components/Splash Screen/SplashScreen';
-import OnBoardingScreen from '../components/Onboarding Screen/OnBoardingScreen';
+import SplashScreen from '../components/SplashScreen/SplashScreen';
+import OnBoardingScreen from '../components/OnboardingScreen/OnBoardingScreen';
 
 const index = () => {
     // Stack for navigation purposes
@@ -27,7 +27,7 @@ const index = () => {
       <Stack.Navigator>
         {/* Splash Screen */}
         {showSplashScreen ? <Stack.Screen name='Splash' component={SplashScreen} options={{headerShown: false}} /> : null }
-        
+
         {/* On Boarding Screen */}
         <Stack.Screen name='OnBoarding Screen' component={OnBoardingScreen} options={{headerShown: false}} />
       </Stack.Navigator>
