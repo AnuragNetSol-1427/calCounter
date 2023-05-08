@@ -9,6 +9,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import SplashScreen from '../components/SplashScreen/SplashScreen';
 import HomeScreen from '../components/HomeScreen/HomeScreen';
 import OnBoardScreen from '../components/OnboardingScreen/OnBoardScreen';
+import SearchScreen from '../components/SearchScreen/SearchScreen';
 
 const index = () => {
   // Stack for navigation purposes
@@ -64,11 +65,17 @@ const index = () => {
           component={OnBoardScreen}
           options={{headerShown: false}}
         /> */}
+        <Stack.Screen
+            name="SearchScreen"
+            component={SearchScreen}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
             options={{headerShown: false}}
           />
+          
         </Stack.Navigator>
       </NavigationContainer>
     )
