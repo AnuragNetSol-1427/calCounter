@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   onBoardingScreenHeading: {
     fontSize: 24,
     color: COLORS.green,
-    marginTop: 88,
+    marginTop: 20,
     fontWeight: 'bold',
   },
   onBoardingScreenImages: {
