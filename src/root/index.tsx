@@ -1,31 +1,26 @@
 import React, {useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 // Imports related to Navigation
 import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
-
 // Screens
 import SplashScreen from '../components/SplashScreen/SplashScreen';
-import HomeScreen from '../components/HomeScreen/HomeScreen';
+// import OnBoardingScreen from '../components/OnboardingScreen/OnBoardingScreen';
+// import HomeScreen from '../components/HomeScreen/HomeScreen';
 import OnBoardScreen from '../components/OnboardingScreen/OnBoardScreen';
-import SearchScreen from '../components/SearchScreen/SearchScreen';
-
+import BottomTabNavigation from './BottomTabNavigation';
 const index = () => {
   // Stack for navigation purposes
   const Stack = createStackNavigator();
-
   // States
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isAppFirstLaunched, setIsAppFirstLaunched] = useState(null);
-
   // Use effects
   useEffect(() => {
     setTimeout(() => {
       setShowSplashScreen(false);
     }, 4000);
   }, []);
-
   useEffect(() => {
     async function appData() {
       const appData = await AsyncStorage.getItem('isAppFirstLaunched');
@@ -38,7 +33,6 @@ const index = () => {
     }
     appData();
   }, []);
-
   return (
     isAppFirstLaunched != null && (
       <NavigationContainer>
@@ -51,7 +45,6 @@ const index = () => {
               options={{headerShown: false}}
             />
           ) : null}
-
           {/* On Boarding Screen */}
           {isAppFirstLaunched && (
             <Stack.Screen
@@ -65,21 +58,19 @@ const index = () => {
           component={OnBoardScreen}
           options={{headerShown: false}}
         /> */}
-        <Stack.Screen
-            name="SearchScreen"
-            component={SearchScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="HomeScreen"
             component={HomeScreen}
             options={{headerShown: false}}
+          /> */}
+          <Stack.Screen
+            name="BottomTabNavigation"
+            component={BottomTabNavigation}
+            options={{headerShown: false}}
           />
-          
         </Stack.Navigator>
       </NavigationContainer>
     )
   );
 };
-
-export default index;
+export default index

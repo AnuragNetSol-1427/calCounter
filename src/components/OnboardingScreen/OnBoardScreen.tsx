@@ -10,16 +10,13 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
-
 const {width, height} = Dimensions.get('window');
-
 const COLORS = {
   green: '#91C788',
   orangeDark: '#FF8473',
   orangeLight: '#FFC0B8',
   white: '#fff',
 };
-
 const slides = [
   {
     id: '1',
@@ -44,7 +41,6 @@ const slides = [
     subtitle: 'With amazing inbuilt tools you can track your progress.',
   },
 ];
-
 const Slide = ({item}) => {
   return (
     <View style={styles.flatListSlideContainer}>
@@ -55,11 +51,9 @@ const Slide = ({item}) => {
     </View>
   );
 };
-
 const OnBoardScreen = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef(null);
-
   const updateCurrentSlideIndex = e => {
     // console.log(e);
     const contentOffsetX = e.nativeEvent.contentOffset.x;
@@ -67,7 +61,6 @@ const OnBoardScreen = ({navigation}) => {
     const currentIndex = Math.round(contentOffsetX / width);
     setCurrentSlideIndex(currentIndex);
   };
-
   const goNextSlide = () => {
     const nextSlideIndex = currentSlideIndex + 1;
     if (nextSlideIndex != slides.length) {
@@ -76,14 +69,12 @@ const OnBoardScreen = ({navigation}) => {
       setCurrentSlideIndex(nextSlideIndex);
     }
   };
-
   const skip = () => {
     const lastSlideIndex = slides.length - 1;
     const offset = lastSlideIndex * width;
     ref?.current?.scrollToOffset({offset});
     setCurrentSlideIndex(lastSlideIndex);
   };
-
   const Footer = () => {
     return (
       <View style={styles.footerContainer}>
@@ -108,7 +99,8 @@ const OnBoardScreen = ({navigation}) => {
             <View style={{height: 72}}>
               <TouchableOpacity
                 style={[styles.btn]}
-                onPress={() => navigation.replace('HomeScreen')}>
+                // onPress={() => navigation.replace('HomeScreen')}>
+                onPress={() => navigation.replace('BottomTabNavigation')}>
                 <Text
                   style={{fontWeight: 'bold', fontSize: 15, color: 'white'}}>
                   GET STARTED
@@ -168,9 +160,7 @@ const OnBoardScreen = ({navigation}) => {
     </SafeAreaView>
   );
 };
-
 export default OnBoardScreen;
-
 const styles = StyleSheet.create({
   onBoardingScreencontainer: {
     flex: 1,
@@ -187,7 +177,7 @@ const styles = StyleSheet.create({
   onBoardingScreenHeading: {
     fontSize: 24,
     color: COLORS.green,
-    marginTop: 25,
+    marginTop: 88,
     fontWeight: 'bold',
   },
   onBoardingScreenImages: {
