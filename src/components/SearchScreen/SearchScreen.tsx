@@ -7,6 +7,7 @@ import {
   FlatList,
   Image,
   ScrollView,
+  ActivityIndicator,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -24,10 +25,14 @@ const COLORS = {
 };
 
 const SearchScreen = () => {
+  // All the states are here
   const [data, setData] = useState([]);
   const [query, setQuery] = useState('');
+  const [loading, setLoading] = useState(false);
 
+  // All the functions are here
   const searchResult = () => {
+    setLoading(true);
     const options = {
       method: 'GET',
       url: 'https://api.calorieninjas.com/v1/nutrition?query=' + query,
@@ -238,26 +243,30 @@ const SearchScreen = () => {
           </View>
         </View>
 
-        {data?.length === 0 ? (
-          <SearchZero />
-        ) : (
-          <View>
-            <View style={styles.mealImgContainer}>
-              <Image
-                style={styles.mealImg}
-                source={require(`../../assets/meal.png`)}
-              />
-              <Text
-                style={{
-                  fontSize: 18,
-                  alignSelf: 'center',
-                  color: COLORS.blackForSearchHeading,
-                }}>
-                Your intake details
-              </Text>
+        {loading ? (
+          data?.length > 0 ? (
+            <View>
+              <View style={styles.mealImgContainer}>
+                <Image
+                  style={styles.mealImg}
+                  source={require(`../../assets/meal.png`)}
+                />
+                <Text
+                  style={{
+                    fontSize: 18,
+                    alignSelf: 'center',
+                    color: COLORS.blackForSearchHeading,
+                  }}>
+                  Your intake details
+                </Text>
+              </View>
+              <FlatList data={data} renderItem={renderItems} />
             </View>
-            <FlatList data={data} renderItem={renderItems} />
-          </View>
+          ) : (
+            <ActivityIndicator />
+          )
+        ) : (
+          <SearchZero />
         )}
       </ScrollView>
     </>
