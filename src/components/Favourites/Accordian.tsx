@@ -1,5 +1,5 @@
-import {View, Text, StyleSheet, ScrollView} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {View, Text, StyleSheet, ScrollView, RefreshControl} from 'react-native';
+import React, {useCallback, useEffect, useState} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   Collapse,
@@ -16,6 +16,17 @@ const COLORS = {
 };
 
 const Accordian = () => {
+  // This state leads to refresh the screen
+  const [refreshing, setRefreshing] = useState(false);
+
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    setTimeout(() => {
+      setRefreshing(false);
+      getFavourites();
+    }, 2000);
+  }, []);
+
   const [favourites, setFavourites] = useState({});
   const getFavourites = async () => {
     const mealName = await AsyncStorage.getItem('mealName');
@@ -32,13 +43,17 @@ const Accordian = () => {
     return name.charAt(0).toUpperCase() + name.slice(1);
   };
   return (
-    <>
+    <ScrollView
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }>
+      {/* {Object.keys(favourites) ? ( */}
       {favourites ? (
         <>
           {Object.keys(favourites).map(key => (
             <Collapse>
               <CollapseHeader>
-                <View style={styles.collapseHeaderContainer}>
+                <View key={key} style={styles.collapseHeaderContainer}>
                   <Text style={styles.collapseHeaderText}>
                     {firstLetter(key)}
                   </Text>
@@ -68,6 +83,12 @@ const Accordian = () => {
                           {favourites[key].cholesterol_mg}
                         </Text>
                       </View>
+                      {/* <View style={styles.nutrientContainer}>
+                    <Text style={styles.nutrientHeading}>Sat. Fat (g)</Text>
+                    <Text style={styles.nutrientValue}>
+                      {favourites[key].fat_saturated_g}
+                    </Text>
+                  </View> */}
                     </View>
                     <View style={styles.nutrientDetailsRowOne}>
                       <View style={styles.nutrientContainer}>
@@ -90,6 +111,12 @@ const Accordian = () => {
                           {favourites[key].potassium_mg}
                         </Text>
                       </View>
+                      {/* <View style={styles.nutrientContainer}>
+                    <Text style={styles.nutrientHeading}>Protein (g)</Text>
+                    <Text style={styles.nutrientValue}>
+                      {favourites[key].protein_g}
+                    </Text>
+                  </View> */}
                     </View>
                     <View style={styles.nutrientDetailsRowOne}>
                       <View style={styles.nutrientContainer}>
@@ -98,6 +125,12 @@ const Accordian = () => {
                           {favourites[key].protein_g}
                         </Text>
                       </View>
+                      {/* <View style={styles.nutrientContainer}>
+                    <Text style={styles.nutrientHeading}>Serving Size (g)</Text>
+                    <Text style={styles.nutrientValue}>
+                      {favourites[key].serving_size_g}
+                    </Text>
+                  </View> */}
                       <View style={styles.nutrientContainer}>
                         <Text style={styles.nutrientHeading}>Sodium (mg)</Text>
                         <Text style={styles.nutrientValue}>
@@ -125,7 +158,7 @@ const Accordian = () => {
           </View>
         </View>
       )}
-    </>
+    </ScrollView>
   );
 };
 
