@@ -10,13 +10,16 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
+
 const {width, height} = Dimensions.get('window');
+
 const COLORS = {
   green: '#91C788',
   orangeDark: '#FF8473',
   orangeLight: '#FFC0B8',
   white: '#fff',
 };
+
 const slides = [
   {
     id: '1',
@@ -41,6 +44,7 @@ const slides = [
     subtitle: 'With amazing inbuilt tools you can track your progress.',
   },
 ];
+
 const Slide = ({item}) => {
   return (
     <View style={styles.flatListSlideContainer}>
@@ -51,9 +55,11 @@ const Slide = ({item}) => {
     </View>
   );
 };
+
 const OnBoardScreen = ({navigation}) => {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const ref = useRef(null);
+
   const updateCurrentSlideIndex = e => {
     // console.log(e);
     const contentOffsetX = e.nativeEvent.contentOffset.x;
@@ -61,6 +67,7 @@ const OnBoardScreen = ({navigation}) => {
     const currentIndex = Math.round(contentOffsetX / width);
     setCurrentSlideIndex(currentIndex);
   };
+
   const goNextSlide = () => {
     const nextSlideIndex = currentSlideIndex + 1;
     if (nextSlideIndex != slides.length) {
@@ -69,12 +76,14 @@ const OnBoardScreen = ({navigation}) => {
       setCurrentSlideIndex(nextSlideIndex);
     }
   };
+
   const skip = () => {
     const lastSlideIndex = slides.length - 1;
     const offset = lastSlideIndex * width;
     ref?.current?.scrollToOffset({offset});
     setCurrentSlideIndex(lastSlideIndex);
   };
+
   const Footer = () => {
     return (
       <View style={styles.footerContainer}>
@@ -102,7 +111,12 @@ const OnBoardScreen = ({navigation}) => {
                 // onPress={() => navigation.replace('HomeScreen')}>
                 onPress={() => navigation.replace('BottomTabNavigation')}>
                 <Text
-                  style={{fontWeight: 'bold', fontSize: 15, color: 'white'}}>
+                  style={{
+                    // fontWeight: 'bold',
+                    fontSize: 15,
+                    color: 'white',
+                    fontFamily: 'Signika-Bold',
+                  }}>
                   GET STARTED
                 </Text>
               </TouchableOpacity>
@@ -122,10 +136,11 @@ const OnBoardScreen = ({navigation}) => {
                 onPress={skip}>
                 <Text
                   style={{
-                    fontWeight: 'bold',
+                    // fontWeight: 'bold',
                     fontSize: 15,
                     // color: COLORS.white,
                     color: COLORS.green,
+                    fontFamily: 'Signika-Bold',
                   }}>
                   SKIP
                 </Text>
@@ -133,7 +148,12 @@ const OnBoardScreen = ({navigation}) => {
               <View style={{width: 15}}></View>
               <TouchableOpacity style={[styles.btn]} onPress={goNextSlide}>
                 <Text
-                  style={{fontWeight: 'bold', fontSize: 15, color: 'white'}}>
+                  style={{
+                    // fontWeight: 'bold',
+                    fontSize: 15,
+                    color: 'white',
+                    fontFamily: 'Signika-Bold',
+                  }}>
                   NEXT
                 </Text>
               </TouchableOpacity>
@@ -160,7 +180,9 @@ const OnBoardScreen = ({navigation}) => {
     </SafeAreaView>
   );
 };
+
 export default OnBoardScreen;
+
 const styles = StyleSheet.create({
   onBoardingScreencontainer: {
     flex: 1,
@@ -177,8 +199,9 @@ const styles = StyleSheet.create({
   onBoardingScreenHeading: {
     fontSize: 24,
     color: COLORS.green,
-    marginTop: 20,
-    fontWeight: 'bold',
+    marginTop: 88,
+    // fontWeight: 'bold',
+    fontFamily: 'Signika-Bold',
   },
   onBoardingScreenImages: {
     height: 282,
@@ -189,10 +212,11 @@ const styles = StyleSheet.create({
   title: {
     // color: COLORS.white,
     fontSize: 22,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     // margin: 20,
     textAlign: 'center',
     color: 'black',
+    fontFamily: 'Signika-Bold',
   },
   subTitle: {
     // color: COLORS.white,
@@ -201,6 +225,7 @@ const styles = StyleSheet.create({
     maxWidth: '70%',
     textAlign: 'center',
     lineHeight: 23,
+    fontFamily: 'Signika-Regular',
   },
   footerContainer: {
     height: height * 0.25,
