@@ -14,6 +14,11 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-calCounter-calCounterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-calCounter-calCounterTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C7755B3331CD47A6BE7BE91D /* Signika-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C2EF295FCEA64091A87DCF0B /* Signika-Bold.ttf */; };
+		ED1D47AE5B314DD2B823DC5A /* Signika-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C88202E32BC2458BBFBD4FFA /* Signika-Light.ttf */; };
+		CEF2F331EB0A4ACFB224CEF6 /* Signika-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CDF40F10B5E44D295DE5997 /* Signika-Medium.ttf */; };
+		7B71E0CDD8F0432BAE18266A /* Signika-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B29D91D1D16547E5954C29ED /* Signika-Regular.ttf */; };
+		A5F4028B1DD04689BBEED573 /* Signika-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6262549365E6489C85ACB02E /* Signika-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = calCounter/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-calCounter-calCounterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-calCounter-calCounterTests.release.xcconfig"; path = "Target Support Files/Pods-calCounter-calCounterTests/Pods-calCounter-calCounterTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		C2EF295FCEA64091A87DCF0B /* Signika-Bold.ttf */ = {isa = PBXFileReference; name = "Signika-Bold.ttf"; path = "../src/assets/fonts/Signika-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C88202E32BC2458BBFBD4FFA /* Signika-Light.ttf */ = {isa = PBXFileReference; name = "Signika-Light.ttf"; path = "../src/assets/fonts/Signika-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9CDF40F10B5E44D295DE5997 /* Signika-Medium.ttf */ = {isa = PBXFileReference; name = "Signika-Medium.ttf"; path = "../src/assets/fonts/Signika-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B29D91D1D16547E5954C29ED /* Signika-Regular.ttf */ = {isa = PBXFileReference; name = "Signika-Regular.ttf"; path = "../src/assets/fonts/Signika-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6262549365E6489C85ACB02E /* Signika-SemiBold.ttf */ = {isa = PBXFileReference; name = "Signika-SemiBold.ttf"; path = "../src/assets/fonts/Signika-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +132,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				3A5EBF2E77CF4A46AA2B6953 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +158,19 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		3A5EBF2E77CF4A46AA2B6953 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				C2EF295FCEA64091A87DCF0B /* Signika-Bold.ttf */,
+				C88202E32BC2458BBFBD4FFA /* Signika-Light.ttf */,
+				9CDF40F10B5E44D295DE5997 /* Signika-Medium.ttf */,
+				B29D91D1D16547E5954C29ED /* Signika-Regular.ttf */,
+				6262549365E6489C85ACB02E /* Signika-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +268,11 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				C7755B3331CD47A6BE7BE91D /* Signika-Bold.ttf in Resources */,
+				ED1D47AE5B314DD2B823DC5A /* Signika-Light.ttf in Resources */,
+				CEF2F331EB0A4ACFB224CEF6 /* Signika-Medium.ttf in Resources */,
+				7B71E0CDD8F0432BAE18266A /* Signika-Regular.ttf in Resources */,
+				A5F4028B1DD04689BBEED573 /* Signika-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
